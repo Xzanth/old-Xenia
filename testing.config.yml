@@ -1,0 +1,29 @@
+# GENERAL IRC SETTINGS
+nick: 'XeniaTest'
+realname: 'PUGBOT testing'
+user: 'XeniaTest'
+server: 'irc.quakenet.org'
+channels:
+  - '#xzanth'
+
+# IDENTIFY SETTINGS
+username: 'xzbot'
+password: <%= ENV["TESTING_AUTH_PASSWORD"] %>
+auth: :secure_quakenet
+
+# PUGBOT SETTINGS
+pug_channel: '#xzanth'
+link: '<http://webchat.quakenet.org/?channels=xzanth|#xzanth>'
+integrate: true
+
+# INTEGRATE SETTINGS
+slack_key: <%= ENV["TESTING_SLACK_KEY"] %>
+integrations:
+  - :slack
+
+# AUTH-AUTOVOICE SETTINGS
+wait_until_opped: true
+check_periodically: true
+
+# COMMANDS SETTINGS
+help_response: :notice

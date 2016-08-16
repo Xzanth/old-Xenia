@@ -1,0 +1,30 @@
+# GENERAL IRC SETTINGS
+nick: 'Xenia'
+realname: 'Xzanths PugBot'
+user: 'Xenia'
+server: 'irc.quakenet.org'
+channels:
+- '#midair.pug'
+local_host: 'xzanth.com'
+
+# IDENTIFY SETTINGS
+username: 'xz'
+password: <%= ENV["PRODUCTION_AUTH_PASSWORD"] %>
+auth: :secure_quakenet
+
+# PUGBOT SETTINGS
+pug_channel: '#midair.pug'
+link: '<http://webchat.quakenet.org/?channels=midair.pug|#midair.pug>'
+integrate: true
+
+# INTEGRATE SETTINGS
+slack_key: <%= ENV["PRODUCTION_SLACK_KEY"] %>
+integrations:
+  - :slack
+
+# AUTH-AUTOVOICE SETTINGS
+wait_until_opped: true
+check_periodically: true
+
+# COMMANDS SETTINGS
+help_response: :notice

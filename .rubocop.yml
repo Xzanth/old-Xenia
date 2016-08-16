@@ -1,0 +1,17 @@
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 300
+
+Metrics/AbcSize:
+  Max: 20
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/GlobalVars:
+  AllowedVariables: ['$timers', '$slack_client']
+
+Style/AndOr:
+  EnforcedStyle: conditionals

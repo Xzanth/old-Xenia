@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require File.expand_path("../../lib/bot.rb", __FILE__)
+require "optparse"
+
+Options = {
+  :config => File.join(__dir__, "../config.yml")
+}
+
+options = Options.dup
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: xenia [options]"
+  opts.on("-c", "--config CONFIG", "Path to config") do |v|
+    options[:config] = File.expand_path(v)
+  end
+end.parse!
+
+puts options[:config]
+template = ERB.new(File.new(options[:config]).read)
+config = YAML.load(template.result(binding))
+
+start_bot(config)

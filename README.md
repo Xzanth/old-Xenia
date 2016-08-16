@@ -1,8 +1,10 @@
-# XENIA
-The [pugbot](https://github.com/Xzanth/pugbot) that is ran on
-[#midair.pug](irc://irc.quakenet.org:6667/#midair.pug) for organising pick up
-games of [midair](https://www.playmidair.com).
-
+<p align="center">
+<img src="https://i.imgur.com/EKiEUey.jpg?1" />
+<h1 align="center">XENIA</h1></p>
+<p align="center">The <a href="https://github.com/Xzanth/pugbot">pugbot</a> that is ran on 
+<a href="http://webchat.quakenet.org/?channels=midair.pug">#midair.pug</a> for organising pick up
+games of <a href="https://www.playmidair.com">midair</a>.
+</p>
 ## Usage
 Install the requirements with:
 

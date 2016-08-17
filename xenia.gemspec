@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
   gem.require_paths = ["lib"]
 
-  gem.add_dependency("pugbot", "~> 0.1.0")
+  gem.add_dependency("pugbot", "~> 0.1.1")
   gem.add_dependency("cinch-integrate", "~> 0.0.3")
   gem.add_dependency("cinch-auth-autovoice", "~> 0.0.1")
 end

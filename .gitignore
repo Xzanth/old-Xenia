@@ -1,3 +1,4 @@
 *.gem
 env.*
 Gemfile.lock
+*.sqlite

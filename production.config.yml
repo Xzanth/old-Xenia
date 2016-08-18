@@ -28,3 +28,7 @@ check_periodically: true
 
 # COMMANDS SETTINGS
 help_response: :notice
+
+# DATABASE SETTINGS
+database_type: "sqlite"
+database_file: "prod-database.sqlite"

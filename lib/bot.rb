@@ -6,6 +6,8 @@ require "cinch/commands"
 require "cinch/plugins/identify"
 require "cinch/plugins/integrate"
 require "cinch/plugins/auth-autovoice"
+require "dm-sqlite-adapter"
+require "dm-migrations"
 require "yaml"
 require "pugbot"
 
@@ -50,5 +52,10 @@ def start_bot(config)
     end
   end
 
+  if config["database_type"] == "sqlite"
+    file = File.expand_path(config["database_file"])
+    DataMapper.setup(:default, "sqlite://#{file}")
+  end
+  DataMapper.auto_upgrade!
   bot.start
 end

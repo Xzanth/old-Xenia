@@ -10,6 +10,11 @@ require "dm-sqlite-adapter"
 require "dm-migrations"
 require "yaml"
 require "pugbot"
+begin
+  require "dm-postgres-adapter"
+rescue LoadError
+  warn "Postgres adapter gem missing"
+end
 
 def start_bot(config)
   bot = Cinch::Bot.new do
@@ -52,10 +57,14 @@ def start_bot(config)
     end
   end
 
-  if config["database_type"] == "sqlite"
-    file = File.expand_path(config["database_file"])
-    DataMapper.setup(:default, "sqlite://#{file}")
+  args = ""
+  if config["db_type"] == "sqlite"
+    args = File.expand_path(config["db_file"])
+  else config["db_type"] == "postgres"
+    args << "#{config['db_user']}:#{config['db_password']}"
+    args << "@#{config['db_host']}/#{config['db_name']}"
   end
+  DataMapper.setup(:default, "#{config['db_type']}://#{args}")
   DataMapper.auto_upgrade!
   bot.start
 end

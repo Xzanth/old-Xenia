@@ -30,5 +30,8 @@ check_periodically: true
 help_response: :notice
 
 # DATABASE SETTINGS
-database_type: "sqlite"
-database_file: "prod-database.sqlite"
+db_type: "postgres"
+db_user: "xenia"
+db_password: <%= ENV["PRODUCTION_DB_PASS"] %>
+db_host: "localhost"
+db_name: "pugbot"

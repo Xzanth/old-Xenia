@@ -29,5 +29,5 @@ check_periodically: true
 help_response: :notice
 
 # DATABASE SETTINGS
-database_type: "sqlite"
-database_file: "database.sqlite"
+db_type: "sqlite"
+db_file: "database.sqlite"

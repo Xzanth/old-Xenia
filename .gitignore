@@ -3,3 +3,4 @@ env.*
 Gemfile.lock
 *.sqlite
 .bundle
+*.log

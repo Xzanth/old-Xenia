@@ -66,5 +66,10 @@ def start_bot(config)
   end
   DataMapper.setup(:default, "#{config['db_type']}://#{args}")
   DataMapper.auto_upgrade!
+
+  bot.loggers << Cinch::Logger::FormattedLogger.new(
+    File.open(File.expand_path(config["log_file"]), "a")
+  )
+
   bot.start
 end

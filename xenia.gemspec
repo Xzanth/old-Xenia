@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name          = "Xenia"
-  gem.version       = "0.0.3"
+  gem.version       = "0.0.4"
   gem.authors       = ["Jonas Osborn"]
   gem.description   = "Cinch bot for use in #midair.pug on quakenet"
   gem.summary       = "Midair pug bot"

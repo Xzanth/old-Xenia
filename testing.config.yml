@@ -31,3 +31,6 @@ help_response: :notice
 # DATABASE SETTINGS
 db_type: "sqlite"
 db_file: "database.sqlite"
+
+# LOGGING
+log_file: "logfile.log"

@@ -35,3 +35,6 @@ db_user: "xenia"
 db_password: <%= ENV["PRODUCTION_DB_PASS"] %>
 db_host: "localhost"
 db_name: "pugbot"
+
+# LOGGING
+log_file: "logfile.log"

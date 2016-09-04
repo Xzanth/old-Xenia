@@ -1,3 +1,6 @@
+# ENVIRONMENT
+environment: :development
+
 # GENERAL IRC SETTINGS
 nick: 'XeniaTest'
 realname: 'PUGBOT testing'
@@ -34,3 +37,6 @@ db_file: "database.sqlite"
 
 # LOGGING
 log_file: "logfile.log"
+
+# WEB SERVER
+web_port: 9494

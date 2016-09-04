@@ -1,3 +1,6 @@
+# ENVIRONMENT
+environment: :production
+
 # GENERAL IRC SETTINGS
 nick: 'Xenia'
 realname: 'Xzanths PugBot'
@@ -38,3 +41,6 @@ db_name: "pugbot"
 
 # LOGGING
 log_file: "logfile.log"
+
+# WEB SERVER
+web_port: 9494

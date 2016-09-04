@@ -9,7 +9,10 @@ require "cinch/plugins/auth-autovoice"
 require "dm-sqlite-adapter"
 require "dm-migrations"
 require "yaml"
+require "rack"
+require "thin"
 require "pugbot"
+require "pugbot/web"
 begin
   require "dm-postgres-adapter"
 rescue LoadError
@@ -22,7 +25,6 @@ def start_bot(config)
       c.plugins.plugins = [
         Cinch::Plugins::Identify,
         Cinch::Commands::Help,
-        PugBot::BotPlugin,
         Cinch::Plugins::Integrate,
         Cinch::Plugins::AuthAutovoice
       ]
@@ -71,5 +73,10 @@ def start_bot(config)
     File.open(File.expand_path(config["log_file"]), "a")
   )
 
-  bot.start
+  plugin = PugBot::BotPlugin.new(bot)
+  Thread.new { bot.start }
+  PugBot::Web.set :plugin, plugin
+  PugBot::Web.set :environment, config["environment"]
+  pug_web = PugBot::Web.new
+  Rack::Handler::Thin.run(pug_web, Port: config["web_port"])
 end

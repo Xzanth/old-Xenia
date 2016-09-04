@@ -9,6 +9,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency("pugbot", "~> 0.1")
+  gem.add_dependency("thin", "~> 1.6")
   gem.add_dependency("cinch-integrate", "~> 0.0.3")
   gem.add_dependency("cinch-auth-autovoice", "~> 0.0.1")
   gem.add_dependency("dm-sqlite-adapter", "~> 1.2.0")

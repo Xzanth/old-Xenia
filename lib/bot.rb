@@ -34,9 +34,10 @@ def start_bot(config)
         type:     config["auth"]
       }
       c.plugins.options[PugBot::BotPlugin] = {
-        channel:   config["pug_channel"],
-        integrate: config["integrate"],
-        link:      config["link"]
+        channel:      config["pug_channel"],
+        integrate:    config["integrate"],
+        link:         config["link"],
+        default_file: config["default_file"]
       }
       c.plugins.options[Cinch::Plugins::Integrate] = {
         integrations:     config["integrations"],

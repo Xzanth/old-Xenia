@@ -18,6 +18,7 @@ auth: :secure_quakenet
 pug_channel: '#xzanth'
 link: '<http://webchat.quakenet.org/?channels=xzanth|#xzanth>'
 integrate: true
+default_file: 'default_test_list'
 
 # INTEGRATE SETTINGS
 slack_key: <%= ENV["TESTING_SLACK_KEY"] %>

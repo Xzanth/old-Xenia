@@ -19,6 +19,7 @@ auth: :secure_quakenet
 pug_channel: '#midair.pug'
 link: '<http://webchat.quakenet.org/?channels=midair.pug|#midair.pug>'
 integrate: true
+default_file: 'default_queue_list'
 
 # INTEGRATE SETTINGS
 slack_key: <%= ENV["PRODUCTION_SLACK_KEY"] %>

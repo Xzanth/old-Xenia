@@ -9,6 +9,8 @@ server: 'irc.quakenet.org'
 channels:
 - '#midair.pug'
 local_host: 'xzanth.com'
+messages_per_second: 0.45
+server_queue_size: 5
 
 # IDENTIFY SETTINGS
 username: 'xz'
@@ -28,7 +30,7 @@ integrations:
 
 # AUTH-AUTOVOICE SETTINGS
 wait_until_opped: true
-check_periodically: true
+check_periodically: false
 
 # COMMANDS SETTINGS
 help_response: :notice

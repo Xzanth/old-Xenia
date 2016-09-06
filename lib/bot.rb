@@ -6,6 +6,7 @@ require "cinch/commands"
 require "cinch/plugins/identify"
 require "cinch/plugins/integrate"
 require "cinch/plugins/auth-autovoice"
+require "cinch/plugins/http_server"
 require "dm-sqlite-adapter"
 require "dm-migrations"
 require "yaml"
@@ -26,7 +27,10 @@ def start_bot(config)
         Cinch::Plugins::Identify,
         Cinch::Commands::Help,
         Cinch::Plugins::Integrate,
-        Cinch::Plugins::AuthAutovoice
+        Cinch::Plugins::AuthAutovoice,
+        Cinch::Plugins::HttpServer,
+        PugBot::BotPlugin,
+        PugBot::WebPlugin
       ]
       c.plugins.options[Cinch::Plugins::Identify] = {
         username: config["username"],
@@ -51,19 +55,27 @@ def start_bot(config)
       c.plugins.options[Cinch::Commands::Help] = {
         help_response: config["help_response"]
       }
+      c.plugins.options[Cinch::Plugins::HttpServer] = {
+        host: "localhost",
+        port: 9494,
+        logfile: File.expand_path("http.log")
+      }
       c.nick       = config["nick"]
       c.realname   = config["realname"]
       c.user       = config["user"]
       c.server     = config["server"]
       c.channels   = config["channels"]
       c.local_host = config["local_host"]
+
+      c.messages_per_second = config["messages_per_second"]
+      c.server_queue_size   = config["server_queue_size"]
     end
   end
 
   args = ""
   if config["db_type"] == "sqlite"
     args = File.expand_path(config["db_file"])
-  else config["db_type"] == "postgres"
+  elsif config["db_type"] == "postgres"
     args << "#{config['db_user']}:#{config['db_password']}"
     args << "@#{config['db_host']}/#{config['db_name']}"
   end
@@ -74,10 +86,5 @@ def start_bot(config)
     File.open(File.expand_path(config["log_file"]), "a")
   )
 
-  plugin = PugBot::BotPlugin.new(bot)
-  Thread.new { bot.start }
-  PugBot::Web.set :plugin, plugin
-  PugBot::Web.set :environment, config["environment"]
-  pug_web = PugBot::Web.new
-  Rack::Handler::Thin.run(pug_web, Port: config["web_port"])
+  bot.start
 end

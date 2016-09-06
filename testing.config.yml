@@ -8,6 +8,8 @@ user: 'XeniaTest'
 server: 'irc.quakenet.org'
 channels:
   - '#xzanth'
+messages_per_second: 0.45
+server_queue_size: 5
 
 # IDENTIFY SETTINGS
 username: 'xzbot'
